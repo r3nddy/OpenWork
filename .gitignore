@@ -14,7 +14,6 @@ Thumbs.db
 desktop.ini
 
 # IDE / Editor (VS Code, Neovim, IntelliJ IDEA)
-.vscode/
 *.code-workspace
 .idea/
 *.iml
@@ -36,6 +35,7 @@ data/hasil_jobstreet.json
 data/scrape/
 data/bookmarked_jobs.json
 debug_page.html
+c_cpp_properties.json
 
 # C++ Build & Compiler Artifacts 
 build/
