@@ -1,0 +1,52 @@
+# Python & Virtual Environments
+.venv/
+**/.venv/
+__pycache__/
+*.pyc
+*.py[oc]
+
+# Environment & API Keys
+.env
+
+# Operating System Trash
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor (VS Code, Neovim, IntelliJ IDEA)
+.vscode/
+*.code-workspace
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Neovim / Vim swap and backup files
+*.swp
+*.swo
+*~
+.netrwhist
+[._]*.un~
+*.suo
+*.user
+
+# Scraping Cache & Local Session 
+data/state.json
+data/hasil_jobstreet.json
+data/scrape/
+data/bookmarked_jobs.json
+debug_page.html
+
+# C++ Build & Compiler Artifacts 
+build/
+bin/
+out/
+Makefile
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CMakeUserPresets.json
+
+# Package Manager (Conan) 
+conan_toolchain.cmake
+conan/
