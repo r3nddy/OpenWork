@@ -1,0 +1,11 @@
+[project]
+name = "openwork-services"
+version = "0.1.0"
+description = "OpenWork Python services: scrapers & AI agents"
+requires-python = ">=3.12"
+dependencies = [
+    "playwright>=1.58.0",
+    "playwright-stealth>=2.0.3",
+    "openai>=2.33.0",
+    "python-dotenv>=1.2.2",
+]
