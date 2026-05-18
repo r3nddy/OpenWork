@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" style="max-width: 1000px; display: block; margin: auto;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+    <linearGradient id="grad-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#84cc16" />
+    </linearGradient>
+    <linearGradient id="grad-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+    <linearGradient id="grad-react" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <!-- Arrow Markers -->
+    <!-- orient="auto" makes the arrow rotate along the bezier curve perfectly -->
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#2dd4bf" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#84cc16" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#f97316" />
+    </marker>
+    <marker id="arrow-react" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#06b6d4" />
+    </marker>
+
+    <!-- Background Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes flow {
+      to { stroke-dashoffset: -24; }
+    }
+    .flow-line {
+      stroke-dasharray: 6 6;
+      animation: flow 1s linear infinite;
+      fill: none;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4)); }
+      50% { filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.8)); }
+    }
+    .glow-node {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    .node-bg {
+      fill: #09090b;
+      stroke-width: 1.5;
+    }
+    .title {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 700;
+      fill: #f8fafc;
+      font-size: 15px;
+    }
+    .desc {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 500;
+      fill: #94a3b8;
+      font-size: 12px;
+    }
+    .icon-text {
+      font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
+    }
+  </style>
+
+  <!-- SOLID DARK BACKGROUND -->
+  <rect width="100%" height="100%" fill="#000000" rx="16" />
+  <rect width="100%" height="100%" fill="url(#grid)" opacity="0.04" rx="16" />
+  <rect width="100%" height="100%" fill="none" stroke="#27272a" stroke-width="2" rx="16" />
+
+  <!-- ==================== GRAPH EDGES (CURVED FLOW LINES INWARD TO CENTER) ==================== -->
+  
+  <!-- 1. Python (TL) -> OpenWork (Center) -->
+  <path d="M 300,125 C 330,125 315,270 355,270" stroke="url(#grad-blue)" stroke-width="2.5" class="flow-line" marker-end="url(#arrow-blue)" />
+
+  <!-- 2. C++ Backend (BL) -> OpenWork (Center) -->
+  <path d="M 300,475 C 330,475 315,330 355,330" stroke="url(#grad-green)" stroke-width="2.5" class="flow-line" marker-end="url(#arrow-green)" />
+
+  <!-- 3. Data Storage (TR) -> OpenWork (Center) -->
+  <path d="M 700,125 C 660,125 675,270 645,270" stroke="url(#grad-orange)" stroke-width="2.5" class="flow-line" marker-end="url(#arrow-orange)" />
+
+  <!-- 4. React Frontend (BR) -> OpenWork (Center) -->
+  <path d="M 700,475 C 660,475 675,330 645,330" stroke="url(#grad-react)" stroke-width="2.5" class="flow-line" marker-end="url(#arrow-react)" />
+
+
+  <!-- ==================== GRAPH NODES ==================== -->
+
+  <!-- Node: OpenWork (Center) -->
+  <g transform="translate(360, 255)" class="glow-node">
+    <rect width="280" height="90" rx="16" fill="url(#grad-purple)" opacity="0.1" />
+    <rect width="280" height="90" rx="16" class="node-bg" stroke="url(#grad-purple)" stroke-width="2" />
+    
+    <circle cx="45" cy="45" r="22" fill="#4c1d95" opacity="0.4" />
+    <circle cx="45" cy="45" r="14" fill="#6d28d9" />
+    <text x="45" y="50" font-size="14" fill="#ffffff" text-anchor="middle" class="icon-text">🚀</text>
+    
+    <text x="80" y="42" class="title" font-size="17">OpenWork Core</text>
+    <text x="80" y="62" class="desc">Sistem Orkestrasi Pusat</text>
+  </g>
+
+  <!-- Node: Python Scrapers (Top-Left) -->
+  <g transform="translate(60, 80)">
+    <rect width="240" height="90" rx="12" fill="url(#grad-blue)" opacity="0.05" />
+    <rect width="240" height="90" rx="12" class="node-bg" stroke="url(#grad-blue)" />
+    
+    <circle cx="40" cy="45" r="18" fill="#1e3a8a" opacity="0.4" />
+    <circle cx="40" cy="45" r="10" fill="#1d4ed8" />
+    <text x="40" y="49" font-size="12" fill="#ffffff" text-anchor="middle" class="icon-text">🐍</text>
+    
+    <text x="70" y="38" class="title">Python Scrapers</text>
+    <text x="70" y="56" class="desc">Data Ingestion (uv)</text>
+    <text x="70" y="74" class="desc">Playwright Engine</text>
+  </g>
+
+  <!-- Node: C++ Backend (Bottom-Left) -->
+  <g transform="translate(60, 430)">
+    <rect width="240" height="90" rx="12" fill="url(#grad-green)" opacity="0.05" />
+    <rect width="240" height="90" rx="12" class="node-bg" stroke="url(#grad-green)" />
+    
+    <circle cx="40" cy="45" r="18" fill="#064e3b" opacity="0.4" />
+    <circle cx="40" cy="45" r="10" fill="#059669" />
+    <text x="40" y="49" font-size="12" fill="#ffffff" text-anchor="middle" class="icon-text">⚡</text>
+    
+    <text x="70" y="38" class="title">C++ Backend Engine</text>
+    <text x="70" y="56" class="desc">High-Perf Processing</text>
+    <text x="70" y="74" class="desc">CMake &amp; Conan Build</text>
+  </g>
+
+  <!-- Node: Data Storage (Top-Right) -->
+  <g transform="translate(700, 80)">
+    <rect width="240" height="90" rx="12" fill="url(#grad-orange)" opacity="0.05" />
+    <rect width="240" height="90" rx="12" class="node-bg" stroke="url(#grad-orange)" />
+    
+    <circle cx="40" cy="45" r="18" fill="#78350f" opacity="0.4" />
+    <circle cx="40" cy="45" r="10" fill="#d97706" />
+    <text x="40" y="49" font-size="12" fill="#ffffff" text-anchor="middle" class="icon-text">💾</text>
+    
+    <text x="70" y="38" class="title">Data Storage</text>
+    <text x="70" y="56" class="desc">Structured JSON / DB</text>
+    <text x="70" y="74" class="desc">Job Data Aggregation</text>
+  </g>
+
+  <!-- Node: React Frontend (Bottom-Right) -->
+  <g transform="translate(700, 430)">
+    <rect width="240" height="90" rx="12" fill="url(#grad-react)" opacity="0.05" />
+    <rect width="240" height="90" rx="12" class="node-bg" stroke="url(#grad-react)" />
+    
+    <circle cx="40" cy="45" r="18" fill="#831843" opacity="0.4" /> <!-- dark pink -->
+    <circle cx="40" cy="45" r="10" fill="#db2777" /> <!-- pink -->
+    <text x="40" y="49" font-size="12" fill="#ffffff" text-anchor="middle" class="icon-text">⚛️</text>
+    
+    <text x="70" y="38" class="title">React Frontend UI</text>
+    <text x="70" y="56" class="desc">Modern Web Interface</text>
+    <text x="70" y="74" class="desc">Vite &amp; Tailwind CSS</text>
+  </g>
+
+</svg>
