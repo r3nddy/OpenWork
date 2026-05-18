@@ -1,0 +1,50 @@
+[
+  {
+    "isAdmin": false,
+    "isBlocked": false,
+    "password": "000",
+    "username": "user"
+  },
+  {
+    "isAdmin": true,
+    "isBlocked": false,
+    "password": "admin1234",
+    "username": "admin"
+  },
+  {
+    "isAdmin": false,
+    "isBlocked": false,
+    "password": "passwordreza",
+    "username": "reza"
+  },
+  {
+    "isAdmin": true,
+    "isBlocked": false,
+    "password": "rendy1234",
+    "username": "rendy"
+  },
+  {
+    "isAdmin": true,
+    "isBlocked": false,
+    "password": "ihsan1234",
+    "username": "ihsan"
+  },
+  {
+    "isAdmin": true,
+    "isBlocked": false,
+    "password": "rega1234",
+    "username": "rega"
+  },
+  {
+    "isAdmin": true,
+    "isBlocked": false,
+    "password": "lamine1234",
+    "username": "lamine"
+  },
+  {
+    "isAdmin": true,
+    "isBlocked": false,
+    "password": "ronaldo1234",
+    "username": "ronaldo"
+  }
+]

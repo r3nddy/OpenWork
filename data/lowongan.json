@@ -1,0 +1,90 @@
+[
+    {
+        "company": "PT Finansial Mandiri",
+        "desc": "Menganalisis tren transaksi keuangan harian, menyusun database kueri, dan membuat visualisasi dashboard laporan berkala.",
+        "field": "ECONOMY",
+        "id": 1,
+        "location": "Samarinda",
+        "salaryExpectation": 8000000.0,
+        "skills": "Python, SQL, Tableau, Excel",
+        "title": "Data Analyst",
+        "postedBy": "rendy"
+    },
+    {
+        "company": "PT Inovasi Teknologi",
+        "desc": "Merancang, melatih, mengevaluasi, serta mendeploy model kecerdasan buatan (AI/ML) skala produksi.",
+        "field": "IT",
+        "id": 2,
+        "location": "Jakarta Selatan",
+        "salaryExpectation": 16000000.0,
+        "skills": "Python, Machine Learning, TensorFlow, PyTorch",
+        "title": "Machine Learning Engineer",
+        "postedBy": "ihsan"
+    },
+    {
+        "company": "PT Creative Studio",
+        "desc": "Membuat wireframe, prototype, serta merancang antarmuka visual (UI) website dan aplikasi mobile berestetika premium.",
+        "field": "CREATIVE",
+        "id": 3,
+        "location": "Bandung",
+        "salaryExpectation": 9000000.0,
+        "skills": "Figma, Adobe Illustrator, Wireframing",
+        "title": "UI UX Designer",
+        "postedBy": "rega"
+    },
+    {
+        "company": "PT Global Niaga",
+        "desc": "Mengelola kampanye periklanan digital berbayar, melakukan riset audiens, serta mengoptimalkan conversion rate website.",
+        "field": "CREATIVE",
+        "id": 4,
+        "location": "Surabaya",
+        "salaryExpectation": 11000000.0,
+        "skills": "Copywriting, Google Ads, SEO, Analytics",
+        "title": "Digital Marketing Specialist",
+        "postedBy": "rendy"
+    },
+    {
+        "company": "PT Data Solusi Utama",
+        "desc": "Mengembangkan server-side logic backend menggunakan Python framework, serta mengintegrasikan API data pipeline.",
+        "field": "IT",
+        "id": 5,
+        "location": "Samarinda",
+        "salaryExpectation": 12000000.0,
+        "skills": "Python, Django, SQL, Git",
+        "title": "Python Developer",
+        "postedBy": "ihsan"
+    },
+    {
+        "company": "PT Solusi Digital",
+        "desc": "Membangun antarmuka pengguna web menggunakan React dan Tailwind CSS dengan standar performa tinggi.",
+        "field": "IT",
+        "id": 6,
+        "location": "Jakarta Selatan",
+        "salaryExpectation": 11000000.0,
+        "skills": "React, JavaScript, CSS, HTML",
+        "title": "Frontend Engineer",
+        "postedBy": "rega"
+    },
+    {
+        "company": "PT Cloud Nusantara",
+        "desc": "Mengelola infrastruktur cloud AWS, CI/CD pipelines, dan orkestrasi container Docker/Kubernetes.",
+        "field": "IT",
+        "id": 7,
+        "location": "Bandung",
+        "salaryExpectation": 15000000.0,
+        "skills": "AWS, Docker, Kubernetes, CI/CD",
+        "title": "DevOps Engineer",
+        "postedBy": "rendy"
+    },
+    {
+        "company": "PT Media Kreatif",
+        "desc": "Menulis teks promosi yang menarik, artikel SEO, dan naskah iklan kreatif untuk kampanye digital.",
+        "field": "CREATIVE",
+        "id": 8,
+        "location": "Surabaya",
+        "salaryExpectation": 7500000.0,
+        "skills": "Copywriting, Content Writing, SEO",
+        "title": "Creative Copywriter",
+        "postedBy": "admin"
+    }
+]
