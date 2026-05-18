@@ -1,0 +1,50 @@
+[
+    {
+        "experiences": [
+            {
+                "company": "PT Data Solusi Utama",
+                "duration": 2,
+                "role": "Python Programmer"
+            }
+        ],
+        "id": 1,
+        "location": "Samarinda",
+        "name": "User",
+        "salaryExpectation": 9500000.0,
+        "skills": [
+            {
+                "level": 3,
+                "name": "Python"
+            },
+            {
+                "level": 2,
+                "name": "Data Science"
+            }
+        ],
+        "username": "user"
+    },
+    {
+        "experiences": [
+            {
+                "company": "Shopee Indonesia",
+                "duration": 3,
+                "role": "Marketing Executive"
+            }
+        ],
+        "id": 2,
+        "location": "Surabaya",
+        "name": "Reza Rahadian",
+        "salaryExpectation": 10000000.0,
+        "skills": [
+            {
+                "level": 3,
+                "name": "Copywriting"
+            },
+            {
+                "level": 2,
+                "name": "Google Ads"
+            }
+        ],
+        "username": "reza"
+    }
+]
