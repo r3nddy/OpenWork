@@ -66,9 +66,23 @@ def chat_qwen(client: OpenAI, messages: list[dict]) -> str:
             model="qwen/qwen-2.5-72b-instruct",
             messages=messages,
         )
-        return completion.choices[0].message.content
+
+        # Validasi: pastikan choices tidak kosong/None
+        if not hasattr(completion, 'choices') or not completion.choices:
+            error_detail = getattr(completion, 'error', None)
+            if error_detail:
+                return f"[API_ERROR] OpenRouter error: {error_detail}"
+            return "[API_ERROR] Respons OpenRouter kosong — kemungkinan token limit terlampaui atau server sedang overload."
+
+        content = completion.choices[0].message.content
+
+        # Validasi: pastikan content tidak None
+        if content is None:
+            return "[API_ERROR] Konten respons AI kosong (None). Coba kurangi ukuran data input."
+
+        return content
     except Exception as e:
-        return f"Waduh, ada error: {e}"
+        return f"[API_ERROR] {e}"
 
 
 def print_wrapped(text: str, width: int = 76, indent: str = "  ") -> None:

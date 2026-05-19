@@ -25,6 +25,23 @@ def format_laporan_tabel(raw_text: str) -> None:
     def row_num(no: str, text: str):
         print(f"| {no:<4} | {text:<{W - 8}}|")
 
+    # Deteksi jika respons adalah pesan error dari chat_qwen
+    if raw_text.startswith("[API_ERROR]"):
+        print("=" * 60)
+        print("  ANALISIS GAGAL — ERROR API OPENROUTER")
+        print("=" * 60)
+        print()
+        print(f"  {raw_text}")
+        print()
+        print("  Kemungkinan penyebab:")
+        print("    1. Data lowongan terlalu banyak (token limit terlampaui)")
+        print("    2. OPENROUTER_API_KEY tidak valid atau kedaluwarsa")
+        print("    3. Server OpenRouter sedang sibuk / overload")
+        print()
+        print("  Solusi: Coba lagi beberapa saat, atau periksa .env Anda.")
+        print("=" * 60)
+        return
+
     # Coba parse JSON dari response AI
     try:
         cleaned = raw_text.strip()
@@ -54,7 +71,7 @@ def format_laporan_tabel(raw_text: str) -> None:
     line_eq()
 
     # Skills
-    row("SKILL TERPANAS")
+    row("TOP SKILLS")
     line_dash()
     for i, s in enumerate(data.get("skills", [])[:5], 1):
         nama = s.get("nama", "?")
@@ -93,7 +110,7 @@ def format_laporan_tabel(raw_text: str) -> None:
 
 
 # Build Job Summary
-def _build_job_summaries(jobs: list[dict], max_jobs: int = 30) -> str:
+def _build_job_summaries(jobs: list[dict], max_jobs: int = 20) -> str:
     """Bangun ringkasan lowongan untuk dikirim ke LLM."""
     summaries = []
     for i, job in enumerate(jobs[:max_jobs], 1):
@@ -112,11 +129,13 @@ def _build_job_summaries(jobs: list[dict], max_jobs: int = 30) -> str:
                 salary = f"Rp < {salary_max}"
         else:
             salary = job.get('salary') or job.get('salaryExpectation', 'N/A')
-            
-        desc = job.get('description') or job.get('teaser') or job.get('desc', 'N/A')
+
+        # Langkah B: Batasi panjang deskripsi agar tidak overload token
+        raw_desc = job.get('description') or job.get('teaser') or job.get('desc', '')
+        desc = (raw_desc[:150] + '...') if raw_desc and len(raw_desc) > 150 else raw_desc
+
         skills = job.get('skills', '')
         field = job.get('field', '')
-        url = job.get('url', '')
 
         summary = f"{i}. {title} — {company}\n   Lokasi: {location} | Gaji: {salary}"
         if desc:
@@ -125,8 +144,6 @@ def _build_job_summaries(jobs: list[dict], max_jobs: int = 30) -> str:
             summary += f"\n   Skills: {skills}"
         if field:
             summary += f"\n   Bidang: {field}"
-        if url:
-            summary += f"\n   URL: {url}"
         summaries.append(summary)
 
     return "\n\n".join(summaries)

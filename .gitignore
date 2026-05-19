@@ -50,3 +50,6 @@ CMakeUserPresets.json
 # Package Manager (Conan) 
 conan_toolchain.cmake
 conan/
+
+*.json
+flowchart.openWork.md
