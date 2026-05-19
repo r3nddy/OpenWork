@@ -11,7 +11,7 @@
 
 using namespace std;
 
-// ── Helper: level int → label
+// Helper: level int → label
 static string levelLabel(int lv) {
     if (lv == 1) return "Beginner";
     if (lv == 2) return "Intermediate";
@@ -19,7 +19,7 @@ static string levelLabel(int lv) {
     return "?";
 }
 
-// ── Helper: duration int → label
+// Helper: duration int → label
 static string durationLabel(int d) {
     if (d == 1) return "< 1 tahun";
     if (d == 2) return "1 - 2 tahun";
@@ -30,7 +30,7 @@ static string durationLabel(int d) {
 
 
 
-// ── Helper: input gaji non-negatif
+// Helper: input gaji non-negatif
 static double inputSalaryNonNegative(const string& prompt) {
     string errorMsg = "";
     while (true) {
@@ -61,7 +61,7 @@ static double inputSalaryNonNegative(const string& prompt) {
     }
 }
 
-// ── Tampilkan header profil (info read-only + ringkasan)
+//  Tampilkan header profil (info read-only + ringkasan)
 static void tampilkanHeaderProfil(const Profile& p) {
     cout << ABU_TERANG << "+----------------------------------------------------------+" << endl;
     cout << "| " << EMAS << "[ DATA IDENTITAS ]                                       " << ABU_TERANG << "|" << endl;
@@ -75,9 +75,7 @@ static void tampilkanHeaderProfil(const Profile& p) {
     cout << "+----------------------------------------------------------+" << RESET << endl;
 }
 
-// ═══════════════════════════════════════════════════════════
 //  KELOLA SKILLS
-// ═══════════════════════════════════════════════════════════
 
 static void handleSkillMenu(Profile* p) {
     while (true) {
@@ -155,14 +153,15 @@ static void handleSkillMenu(Profile* p) {
                 p->jumlahSkill--;
                 cout << HIJAU << "  [OK] " << PUTIH << "Skill berhasil dihapus." << RESET << endl;
                 tekanEnter();
+            } else {
+                cout << ABU_TERANG << "  [INFO] Penghapusan dibatalkan." << RESET << endl;
+                tekanEnter();
             }
         }
     }
 }
 
-// ═══════════════════════════════════════════════════════════
 //  KELOLA PENGALAMAN KERJA
-// ═══════════════════════════════════════════════════════════
 
 static void handleExperienceMenu(Profile* p) {
     while (true) {
@@ -246,14 +245,15 @@ static void handleExperienceMenu(Profile* p) {
                 p->jumlahExperience--;
                 cout << HIJAU << "  [OK] " << PUTIH << "Pengalaman berhasil dihapus." << RESET << endl;
                 tekanEnter();
+            } else {
+                cout << ABU_TERANG << "  [INFO] Penghapusan dibatalkan." << RESET << endl;
+                tekanEnter();
             }
         }
     }
 }
 
-// ═══════════════════════════════════════════════════════════
 //  PUBLIC API
-// ═══════════════════════════════════════════════════════════
 
 // Buat profil otomatis saat register — dipanggil dari auth_service
 void createProfileForUser(const string& username) {
