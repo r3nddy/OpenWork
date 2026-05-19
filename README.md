@@ -281,6 +281,10 @@ Proyek ini menggunakan `uv`, package manager Python yang sangat cepat.
      ```bash
      cd frontend
      ```
+   - (Khusus pengguna Windows PowerShell) Jika mengalami error saat menjalankan npm, izinkan eksekusi script dengan perintah berikut:
+     ```powershell
+     Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+     ```
    - Install seluruh dependensi (React, Vite, Tailwind, dll):
      ```bash
      npm install
