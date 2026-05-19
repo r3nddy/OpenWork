@@ -78,10 +78,7 @@ int jalankanAgent() {
     return hasil;
 }
 
-// ═══════════════════════════════════════════════════════
 //  Jalankan AI Agent — Mode Analisis File JSON
-// ═══════════════════════════════════════════════════════
-
 int jalankanAgentAnalisis(const string& pathFileScraping) {
     if (!fs::exists("scripts/main.py")) {
         CLEAR;
@@ -108,10 +105,10 @@ int jalankanAgentAnalisis(const string& pathFileScraping) {
 
     CLEAR;
     cout << "\n+==========================================================+" << endl;
-    cout << "|           AI AGENT — ANALISIS LOWONGAN                  |" << endl;
+    cout << "|           AI AGENT — ANALISIS LOWONGAN                   |" << endl;
     cout << "+==========================================================+" << endl;
     cout << "|  Mode    : Analisis pasar kerja dari hasil scraping      |" << endl;
-    cout << "|  Output  : Skill terpanas, gaji, perusahaan, insight     |" << endl;
+    cout << "|  Output  : Top skills, gaji, perusahaan, insight         |" << endl;
     cout << "+==========================================================+" << endl;
     cout << endl;
     cout << "  Memuat AI Agent..." << endl;
