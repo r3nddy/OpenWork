@@ -187,4 +187,34 @@ Proyek ini menggunakan `uv`, package manager Python yang sangat cepat.
      ```
    - Buka browser Anda di `http://localhost:5173` (atau sesuai port yang tampil di terminal).
 
+### 4. Setup API Key OpenRouter (.env)
+
+AI Agents di platform **OpenWork** menggunakan model **Qwen-2.5-72b-instruct** yang diakses melalui layanan API **OpenRouter**. Ikuti langkah-langkah di bawah ini untuk mengonfigurasinya:
+
+1. **Dapatkan API Key OpenRouter:**
+   - Kunjungi situs resmi [OpenRouter.ai](https://openrouter.ai/).
+   - Lakukan pendaftaran (**Sign Up**) atau masuk (**Sign In**).
+   - Setelah masuk, buka halaman **Keys** di [openrouter.ai/keys](https://openrouter.ai/keys).
+   - Klik tombol **Create Key** (Buat Kunci), beri nama kunci tersebut (misalnya: `OpenWork-Dev`), lalu klik **Create**.
+   - Salin kunci API yang dihasilkan (biasanya dimulai dengan `sk-or-v1-...`). Simpan baik-baik karena kunci ini hanya ditampilkan sekali!
+2. **Buat file `.env` secara langsung:**
+   - Di root folder proyek **Agents-boilerplate**, buat berkas baru bernama `.env`.
+   - Buka berkas `.env` tersebut menggunakan VS Code atau teks editor pilihan Anda.
+   - Masukkan baris konfigurasi berikut dan isi dengan API Key yang telah Anda salin sebelumnya:
+     ```env
+     # API Key dari OpenRouter (Qwen-2.5-72b-instruct)
+     OPENROUTER_API_KEY=sk-or-v1-isi_api_key_anda_disini
+     ```
+   - Simpan berkas tersebut.
+
+> [!WARNING]
+> File `.env` berisi kredensial sensitif Anda dan secara default sudah terdaftar di berkas `.gitignore` agar tidak terunggah ke repositori Git publik. Jangan pernah membagikan berkas `.env` atau menghapusnya dari daftar gitignore.
+
+3. **Verifikasi AI Agent:**
+   - Untuk memverifikasi apakah integrasi berjalan lancar, pastikan Anda telah melakukan langkah setup Python, kemudian jalankan:
+     ```bash
+     uv run scripts/main.py
+     ```
+   - Pilih opsi yang berinteraksi dengan AI Agent (misalnya Analyst Agent atau Match Profile). Jika berhasil mengirim dan menerima respons tanpa error, konfigurasi Anda sudah selesai!
+
 <br>
