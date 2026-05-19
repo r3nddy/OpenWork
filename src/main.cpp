@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <filesystem>
+#include <stdexcept>
 
 namespace fs = std::filesystem;
 using namespace std;
@@ -131,34 +132,39 @@ int main(int argc, char* argv[]) {
     loadUsers(users, &jumlahUser);
 
     while (true) {
-        CLEAR;
-        asciiArt();
-        displayMenuAuth();
-
-        int auth = inputMenu(1, 3);
-
-        if (auth == 1) {
-            int idx = login(users, &jumlahUser);
-            if (idx == -1) {
-                exit(0);
-            } else if (idx == -2) {
-                continue;
-            }
-            
-            // Masuk ke menu spesifik sesuai role (Admin/User)
-            User *ptrCurrentUser = users + idx;
-            if (ptrCurrentUser->isAdmin) {
-                handleAdminMenu(users, &jumlahUser, ptrCurrentUser);
-            } else {
-                handleUserMenu(ptrCurrentUser);
-            }
-            
-        } else if (auth == 2) {
-            registerUser(users, &jumlahUser);
-        } else if (auth == 3) {
+        try {
             CLEAR;
-            cout << "\n  Shutting down... Program akan keluar." << endl;
-            exit(0);
+            asciiArt();
+            displayMenuAuth();
+
+            int auth = inputMenu(1, 3);
+
+            if (auth == 1) {
+                int idx = login(users, &jumlahUser);
+                if (idx == -1) {
+                    throw runtime_error("[RUNTIME] Login gagal 3 kali. Program dihentikan.");
+                } else if (idx == -2) {
+                    continue;
+                }
+                
+                // Masuk ke menu spesifik sesuai role (Admin/User)
+                User *ptrCurrentUser = users + idx;
+                if (ptrCurrentUser->isAdmin) {
+                    handleAdminMenu(users, &jumlahUser, ptrCurrentUser);
+                } else {
+                    handleUserMenu(ptrCurrentUser);
+                }
+                
+            } else if (auth == 2) {
+                registerUser(users, &jumlahUser);
+            } else if (auth == 3) {
+                CLEAR;
+                cout << MERAH << "\n  Shutting down... " << PUTIH << "Program akan keluar." << RESET << endl;
+                exit(0);
+            }
+        } catch (const exception &e) {
+            cout << MERAH << "\n[ERROR] exception umum: " << e.what() << RESET << endl;
+            tekanEnter();
         }
     }
 
