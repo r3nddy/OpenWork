@@ -178,6 +178,7 @@ Untuk memproses dan mengelola data lowongan secara mandiri dan cepat, proyek ini
 ├── README.md
 └── conanfile.txt
 ```
+
 </details>
 
 <br>
@@ -300,9 +301,8 @@ AI Agents di platform **OpenWork** menggunakan model **Qwen-2.5-72b-instruct** y
    - Setelah masuk, buka halaman **Keys** di [openrouter.ai/keys](https://openrouter.ai/keys).
    - Klik tombol **Create Key** (Buat Kunci), beri nama kunci tersebut (misalnya: `OpenWork-Dev`), lalu klik **Create**.
    - Salin kunci API yang dihasilkan (biasanya dimulai dengan `sk-or-v1-...`). Simpan baik-baik karena kunci ini hanya ditampilkan sekali!
-   
 2. **Buat file `.env` secara langsung:**
-   - Di root folder proyek **Agents-boilerplate**, buat berkas baru bernama `.env`.
+   - Di root folder proyek **OpenWork**, buat berkas baru bernama `.env`.
    - Buka berkas `.env` tersebut menggunakan VS Code atau teks editor pilihan Anda.
    - Masukkan baris konfigurasi berikut dan isi dengan API Key yang telah Anda salin sebelumnya:
      ```env
@@ -322,4 +322,3 @@ AI Agents di platform **OpenWork** menggunakan model **Qwen-2.5-72b-instruct** y
    - Pilih opsi yang berinteraksi dengan AI Agent (misalnya Analyst Agent atau Match Profile). Jika berhasil mengirim dan menerima respons tanpa error, konfigurasi Anda sudah selesai!
 
 <br>
-
