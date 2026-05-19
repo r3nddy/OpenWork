@@ -52,7 +52,7 @@ int login(User *users, int *jumlahUser) {
                 continue;
             }
             if (!isValidUsername(username)) {
-                cout << MERAH << "[!] " << PUTIH << "Username tidak valid! Gunakan 3-20 karakter (huruf, angka, _, .)." << RESET << endl;
+                cout << MERAH << "[!] " << PUTIH << "Username tidak valid! Gunakan 3-20 karakter (huruf, _, .)." << RESET << endl;
                 tekanEnter();
                 continue;
             }
@@ -150,7 +150,7 @@ bool registerUser(User *users, int *jumlahUser) {
         }
         
         if (!isValidUsername(username)) {
-            cout << MERAH << "[!] " << PUTIH << "Username tidak valid! Gunakan 3-20 karakter (huruf, angka, _, .)." << RESET << endl;
+            cout << MERAH << "[!] " << PUTIH << "Username tidak valid! Gunakan 3-20 karakter (huruf, _, .)." << RESET << endl;
             tekanEnter();
             continue;
         }
@@ -190,7 +190,7 @@ bool registerUser(User *users, int *jumlahUser) {
         }
         
         if (!isValidPassword(password)) {
-            cout << MERAH << "[!] " << PUTIH << "Password lemah! Minimal 8 karakter, 1 huruf besar, 1 huruf kecil, 1 angka." << RESET << endl;
+            cout << MERAH << "[!] " << PUTIH << "Password lemah! Minimal 8 karakter dan mengandung minimal 1 angka." << RESET << endl;
             tekanEnter();
             continue;
         }
@@ -251,20 +251,7 @@ void handleAuditUserMenu(User *users, int *jumlahUser) {
         cout << PUTIH     << "|  0 | Kembali ke Menu Admin                               |" << endl;
         cout << ABU_REDUP << "+==========================================================+" << RESET << endl;
 
-        int menu = -1;
-        while (true) {
-            cout << PUTIH << "\nPilih Menu: " << BIRU;
-            if (cin >> menu) {
-                cin.ignore(1000, '\n');
-                cout << RESET;
-                if (menu >= 0 && menu <= 3) break;
-            } else {
-                cin.clear();
-                cin.ignore(1000, '\n');
-                cout << RESET;
-            }
-            cout << MERAH << "  [!] Input tidak valid. Pilih 0, 1, 2, atau 3." << RESET << endl;
-        }
+        int menu = inputMenu(0, 3);
 
         if (menu == 0) return;
 
@@ -346,7 +333,7 @@ void tambahAdmin(User* users, int* jumlahUser) {
         username = inputString("  Username Admin baru : ");
 
         if (!isValidUsername(username)) {
-            cout << "  [!] Username tidak valid! Gunakan 3-20 karakter (huruf, angka, _, .)." << endl;
+            cout << "  [!] Username tidak valid! Gunakan 3-20 karakter (huruf, _, .)." << endl;
             tekanEnter();
             continue;
         }
@@ -375,7 +362,7 @@ void tambahAdmin(User* users, int* jumlahUser) {
         password = inputPassword("  Password          : ");
 
         if (!isValidPassword(password)) {
-            cout << "  [!] Password lemah! Minimal 8 karakter, 1 huruf besar, 1 huruf kecil, 1 angka." << endl;
+            cout << "  [!] Password lemah! Minimal 8 karakter dan mengandung minimal 1 angka." << endl;
             tekanEnter();
             continue;
         }
