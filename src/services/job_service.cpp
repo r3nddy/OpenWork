@@ -415,7 +415,7 @@ void sortingLowongan(Lowongan* lowongan, int* jumlahLowongan);
 void showLowonganMenuDisplay() {
     CLEAR;
     cout << ABU_REDUP << "\n+==========================================================+" << endl;
-    cout << EMAS      << "|                          LOWONGAN KERJA                  |" << endl;
+    cout << EMAS      << "|                      LOWONGAN KERJA                      |" << endl;
     cout << ABU_REDUP << "+==========================================================+" << endl;
     cout << PUTIH     << "| No | Fitur                                               |" << endl;
     cout << ABU_TERANG << "|----|-----------------------------------------------------|" << endl;
