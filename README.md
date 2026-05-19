@@ -47,7 +47,7 @@ Sistem ini mengotomatiskan scraping dari <b>3 situs lowongan kerja terpopuler</b
 
 ---
 
-## Fitur
+## ✨ Fitur Utama
 
 - 🔍 **Otomasi Web Scraping (3 Platform)** - Pengambilan data lowongan secara otomatis dan berkala dari **Jobstreet**, **KitaLulus**, dan **Loker.id** menggunakan Python browser automation terpusat.
 - 🤖 **AI Agents Orchestrator (Qwen-2.5-72B)** - Didukung oleh asisten AI pintar terintegrasi OpenRouter:
@@ -78,6 +78,109 @@ Untuk memproses dan mengelola data lowongan secara mandiri dan cepat, proyek ini
 | [React.js](https://reactjs.org/)                                           | Library JavaScript untuk UI frontend           |
 | [Tailwind CSS](https://tailwindcss.com/)                                   | Framework CSS untuk styling yang fleksibel     |
 | [Vite](https://vitejs.dev/)                                                | Build tool dan dev server frontend super cepat |
+
+## 📂 Struktur Direktori Proyek
+
+<details>
+<summary><b>Klik untuk melihat struktur lengkap folder proyek</b></summary>
+<br>
+
+```text
+├── data
+│   ├── lowongan.json
+│   ├── profile.json
+│   └── users.json
+├── frontend
+│   ├── public
+│   │   ├── diagram.svg
+│   │   ├── favicon.svg
+│   │   └── icons.svg
+│   ├── src
+│   │   ├── assets
+│   │   │   ├── hero.png
+│   │   │   ├── react.svg
+│   │   │   └── vite.svg
+│   │   ├── components
+│   │   │   ├── FilterBar.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── JobDetail.jsx
+│   │   │   ├── JobRow.jsx
+│   │   │   ├── JobTable.jsx
+│   │   │   ├── Pagination.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   ├── StatsBar.jsx
+│   │   │   └── Toast.jsx
+│   │   ├── hooks
+│   │   │   └── useJobs.js
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── .gitignore
+│   ├── bun.lock
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.js
+│   └── vite.config.js
+├── include
+│   ├── api
+│   │   └── api_server.hpp
+│   ├── bridge
+│   │   └── python_bridge.hpp
+│   ├── core
+│   │   └── json_storage.hpp
+│   ├── services
+│   │   ├── auth_service.hpp
+│   │   ├── job_service.hpp
+│   │   └── profile_service.hpp
+│   ├── constants.hpp
+│   ├── models.hpp
+│   ├── utils.hpp
+│   └── validation.hpp
+├── scripts
+│   ├── agents
+│   │   ├── __init__.py
+│   │   ├── analyst.py
+│   │   ├── auto_matcher.py
+│   │   ├── client.py
+│   │   └── matcher.py
+│   ├── scrapers
+│   │   ├── __init__.py
+│   │   ├── jobstreet_scraper.py
+│   │   ├── kitalulus_scraper.py
+│   │   ├── lokerid_scraper.py
+│   │   ├── scraper_manager.py
+│   │   └── utils.py
+│   ├── shared
+│   │   ├── __init__.py
+│   │   ├── bridge.py
+│   │   └── skema.py
+│   ├── .gitignore
+│   ├── main.py
+│   ├── pyproject.toml
+│   └── uv.lock
+├── src
+│   ├── api
+│   │   └── api_server.cpp
+│   ├── bridge
+│   │   └── python_bridge.cpp
+│   ├── core
+│   │   └── json_storage.cpp
+│   ├── services
+│   │   ├── auth_service.cpp
+│   │   ├── job_service.cpp
+│   │   └── profile_service.cpp
+│   └── main.cpp
+├── .gitignore
+├── CMakeLists.txt
+├── LICENSE
+├── README.md
+└── conanfile.txt
+```
+</details>
+
+<br>
 
 ## ⚙️ Requirements dan Setup
 
@@ -197,6 +300,7 @@ AI Agents di platform **OpenWork** menggunakan model **Qwen-2.5-72b-instruct** y
    - Setelah masuk, buka halaman **Keys** di [openrouter.ai/keys](https://openrouter.ai/keys).
    - Klik tombol **Create Key** (Buat Kunci), beri nama kunci tersebut (misalnya: `OpenWork-Dev`), lalu klik **Create**.
    - Salin kunci API yang dihasilkan (biasanya dimulai dengan `sk-or-v1-...`). Simpan baik-baik karena kunci ini hanya ditampilkan sekali!
+   
 2. **Buat file `.env` secara langsung:**
    - Di root folder proyek **Agents-boilerplate**, buat berkas baru bernama `.env`.
    - Buka berkas `.env` tersebut menggunakan VS Code atau teks editor pilihan Anda.
@@ -218,3 +322,4 @@ AI Agents di platform **OpenWork** menggunakan model **Qwen-2.5-72b-instruct** y
    - Pilih opsi yang berinteraksi dengan AI Agent (misalnya Analyst Agent atau Match Profile). Jika berhasil mengirim dan menerima respons tanpa error, konfigurasi Anda sudah selesai!
 
 <br>
+
